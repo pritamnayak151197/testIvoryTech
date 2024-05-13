@@ -1,0 +1,93 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <label>Full Name:</label>
+  <input type="text" formControlName="fullName">
+  <br>
+  <label>Gender:</label>
+  <br>
+  <input type="radio" formControlName="gender" value="Male"> Male
+  <input type="radio" formControlName="gender" value="Female"> Female
+  <br>
+  <label>Address:</label>
+  <input type="text" formControlName="address">
+  <br>
+  <label>City:</label>
+  <input type="text" formControlName="city">
+  <br>
+  <label>Pin:</label>
+  <input type="number" formControlName="pin">
+  <br>
+  <label>State:</label>
+  <input type="text" formControlName="state">
+  <br>
+  <label>Country:</label>
+  <input type="text" formControlName="country">
+  <br>
+  <label>Email:</label>
+  <input type="email" formControlName="email">
+  <br>
+  <label>Contact:</label>
+  <input type="number" formControlName="contact">
+  <br>
+  <label>Education Qualification:</label>
+  <input type="text" formControlName="educationQualification">
+  <br>
+  <label>Designation:</label>
+  <input type="text" formControlName="designation">
+  <br>
+  <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+</form>
+<div *ngIf="dataSource.length > 0">
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fullName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="pin">
+      <mat-header-cell *matHeaderCellDef> Pin </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pin}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="contact">
+      <mat-header-cell *matHeaderCellDef> Contact </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.contact}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="educationQualification">
+      <mat-header-cell *matHeaderCellDef> Education Qualification </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.educationQualification}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="designation">
+      <mat-header-cell *matHeaderCellDef> Designation </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
